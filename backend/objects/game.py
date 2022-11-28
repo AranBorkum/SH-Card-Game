@@ -8,6 +8,8 @@ class Game:
         self.deck = Deck().deck
         self.n_players: int = n_players
         self.players: List[Player] = [self.make_player() for _ in range(self.n_players)]
+        self.draw_pile = [self.deck.pop()]
+        self.acting_top_card = self.draw_pile[-1]
 
     def make_player(self):
         input_for_player = [self.deck.pop() for _ in range(9)]
