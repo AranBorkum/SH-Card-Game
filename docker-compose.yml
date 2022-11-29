@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:13.6-alpine
+  volumes:
+    - postgresdata:/var/lib/postgresql/data
+  ports:
+    - '5432:5432'
+  environment:
+    - POSTGRES_USER=sh_card_game_user
+    - POSTGRES_PASSWORD=sh_card_game_password
+    - POSTGRES_DB=sh_card_game_db
+  networks:
+    - se-network
+
+volumes:
+  postgresdata:
+networks:
+  se-network:    
